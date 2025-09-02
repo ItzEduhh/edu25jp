@@ -1,0 +1,399 @@
+/* Converting SCSS to vanilla CSS - removing SCSS syntax and nesting */
+
+/* Design tokens based on the brief */
+:root {
+  --background: #ffffff;
+  --foreground: #1f2937;
+  --card: #f1f5f9;
+  --card-foreground: #1f2937;
+  --primary: #1f2937;
+  --primary-foreground: #ffffff;
+  --secondary: #8b5cf6;
+  --secondary-foreground: #ffffff;
+  --muted: #f8fafc;
+  --muted-foreground: #1f2937;
+  --accent: #8b5cf6;
+  --accent-foreground: #ffffff;
+  --border: #d1d5db;
+  --radius: 0.5rem;
+}
+
+/* Typography */
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.hero-title,
+.product-title,
+.purchase-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+}
+
+/* Navigation */
+.gaga-navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.gaga-navbar .navbar-brand {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: var(--primary) !important;
+  font-size: 1.5rem;
+}
+
+.gaga-navbar .nav-link {
+  color: var(--foreground) !important;
+  font-weight: 600;
+}
+
+.gaga-navbar .nav-link:hover {
+  color: var(--accent) !important;
+}
+
+.search-input {
+  border: 1px solid var(--border);
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.2rem rgba(139, 92, 246, 0.25);
+}
+
+.search-btn {
+  background-color: var(--accent);
+  border: 1px solid var(--accent);
+  color: var(--accent-foreground);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.search-btn:hover {
+  background-color: #7c3aed;
+  border-color: #7c3aed;
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(139, 92, 246, 0.3)),
+    url("/placeholder.svg?height=1080&width=1920") center / cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 4rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.accent-text {
+  color: var(--accent);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.hero-badges {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.exclusive-badge {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+}
+
+.authentic-badge {
+  background-color: #10b981;
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+}
+
+/* Product Section */
+.product-section {
+  background-color: var(--background);
+  padding: 5rem 0;
+}
+
+.product-image-container {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.product-image:hover {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 2rem;
+}
+
+.image-overlay .overlay-text {
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.product-info {
+  padding: 2rem;
+}
+
+.product-title {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.product-features {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.product-features li {
+  padding: 0.5rem 0;
+  color: var(--muted-foreground);
+}
+
+.product-features li .fa-check-circle {
+  color: #10b981;
+}
+
+.price-section {
+  background-color: var(--card);
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+.current-price {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--accent);
+  display: block;
+}
+
+.price-note {
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+}
+
+/* Policy Section */
+.policy-section {
+  background-color: var(--muted);
+  padding: 5rem 0;
+}
+
+.policy-card {
+  background-color: var(--background);
+  border-radius: var(--radius);
+  padding: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
+}
+
+.policy-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.policy-header .policy-icon {
+  font-size: 3rem;
+  color: #f59e0b;
+  margin-bottom: 1rem;
+}
+
+.policy-header h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.policy-reasons {
+  margin: 2rem 0;
+}
+
+.reason-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.reason-item i {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+.policy-footer {
+  background-color: var(--muted);
+  padding: 1rem;
+  border-radius: var(--radius);
+  margin-top: 2rem;
+  color: var(--muted-foreground);
+}
+
+/* Purchase Section */
+.purchase-section {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+}
+
+.purchase-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+  padding: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.purchase-title {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.purchase-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+}
+
+.purchase-options {
+  margin: 2rem 0;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.payment-option i {
+  color: #10b981;
+}
+
+.purchase-btn {
+  background-color: white;
+  color: var(--primary);
+  border: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+}
+
+.purchase-btn:hover {
+  background-color: var(--muted);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.purchase-note {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.social-link {
+  color: var(--primary-foreground);
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: var(--accent);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .product-title {
+    font-size: 2rem;
+  }
+
+  .current-price {
+    font-size: 2rem;
+  }
+
+  .policy-card,
+  .purchase-card {
+    padding: 2rem;
+  }
+
+  .social-links {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-info,
+.policy-card,
+.purchase-card {
+  animation: fadeInUp 0.6s ease-out;
+}
